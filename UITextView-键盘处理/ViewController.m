@@ -30,22 +30,34 @@
 }
 
 #pragma mark - textView代理方法
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+//- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+//    if (textView == self.myTextView) {
+//        if (range.location > 0||range.location > 0){
+//            self.navigationItem.rightBarButtonItem.enabled= YES;
+//
+//            return YES;
+//        }else{
+//            self.navigationItem.rightBarButtonItem.enabled= NO;
+//            
+//            return YES;
+//
+//        }
+//        
+//    }
+//    
+//    return YES;
+//}
+//
+-(void)textViewDidChange:(UITextView *)textView
+{
     if (textView == self.myTextView) {
-        if (range.location > 0||range.location > 0){
+        if (textView.text.length > 0) {
             self.navigationItem.rightBarButtonItem.enabled= YES;
-
-            return YES;
         }else{
             self.navigationItem.rightBarButtonItem.enabled= NO;
             
-            return YES;
-
         }
-        
     }
-    
-    return YES;
 }
 
 -(void)rightAction
